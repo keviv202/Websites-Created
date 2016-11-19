@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Bachppan- A Childen Welfare trut</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Fullscreen Background Image Slideshow with CSS3 - A Css-only fullscreen background image slideshow" />
+        <meta name="keywords" content="css3, css-only, fullscreen, background, slideshow, images, content" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css1/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css1/style3.css" />
+		<script type="text/javascript" src="js1/modernizr.custom.86080.js"></script>
+        
+        
+        <!--menu-->
+        
+        
+     <link href="css/style2.css" type="text/css" rel="stylesheet">
+     
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js1/cufon-yui.js" type="text/javascript"></script>
+		<script src="js1/BabelSans_500.font.js" type="text/javascript"></script>
+		<script src="js1/jquery.easing.1.3.js" type="text/javascript"></script>
+        <script type="text/javascript">
+			$(function() {
+				Cufon.replace('a, span').CSS.ready(function() {
+					var $menu 		= $("#slidingMenu");
+					
+					/**
+					* the first item in the menu, 
+					* which is selected by default
+					*/
+					var $selected	= $menu.find('li:first');
+					
+					/**
+					* this is the absolute element,
+					* that is going to move across the menu items
+					* it has the width of the selected item
+					* and the top is the distance from the item to the top
+					*/
+					var $moving		= $('<li />',{
+						className	: 'move',
+						top			: $selected[0].offsetTop + 'px',
+						width		: $selected[0].offsetWidth + 'px'
+					});
+					
+					/**
+					* each sliding div (descriptions) will have the same top
+					* as the corresponding item in the menu
+					*/
+					$('#slidingMenuDesc > div').each(function(i){
+						var $this = $(this);
+						$this.css('top',$menu.find('li:nth-child('+parseInt(i+2)+')')[0].offsetTop + 'px');
+					});
+					
+					/**
+					* append the absolute div to the menu;
+					* when we mouse out from the menu 
+					* the absolute div moves to the top (like innitially);
+					* when hovering the items of the menu, we move it to its position 
+					*/
+					$menu.bind('mouseleave',function(){
+							moveTo($selected,400);
+						  })
+						 .append($moving)
+						 .find('li')
+						 .not('.move')
+						 .bind('mouseenter',function(){
+							var $this = $(this);
+							var offsetLeft = $this.offset().left - 20;
+							//slide in the description
+							$('#slidingMenuDesc > div:nth-child('+ parseInt($this.index()) +')').stop(true).animate({'width':offsetLeft+'px'},400, 'easeOutExpo');
+							//move the absolute div to this item
+							moveTo($this,400);
+						  })
+						  .bind('mouseleave',function(){
+							var $this = $(this);
+							var offsetLeft = $this.offset().left - 20;
+							//slide out the description
+							$('#slidingMenuDesc > div:nth-child('+ parseInt($this.index()) +')').stop(true).animate({'width':'0px'},400, 'easeOutExpo');
+						  });;
+					
+					/**
+					* moves the absolute div, 
+					* with a certain speed, 
+					* to the position of $elem
+					*/
+					function moveTo($elem,speed){
+						$moving.stop(true).animate({
+							top		: $elem[0].offsetTop + 'px',
+							width	: $elem[0].offsetWidth + 'px'
+						}, speed, 'easeOutExpo');
+					}
+				}) ;
+			});
+		</script>	
+		<style>
+          span.reference{
+              position:fixed;
+              left:10px;
+              bottom:10px;
+              font-size:14px;
+          }
+          span.reference a{
+              color:#aaa;
+              text-decoration:none;
+          }
+		</style>
+        
+        
+    </head>
+    <body id="page">
+    
+    
+    
+  
+		
+	<div id="slidingMenuDesc" class="slidingMenuDesc">
+			<div><span>Efforts We do at Bachhpan to create a change..</span></div>
+			<div><span>Join Bachhpan and be reason of someone's happiness..</span></div>
+			<div><span>Here's our team who work hard to make things happen..</span></div>
+			<div><span>Questions??..We will answer..  </span></div>
+			<div><span>Have a glance at what Bachhpan really is..</span></div>
+		</div>
+	
+		<ul id="slidingMenu" class="slidingMenu">
+			<li><a href="home.html"><img src="images/home-icon copy.gif" style="height:inherit;"></a></li>
+			<li><a href="projects.html"><img src="images/projects_ico.gif" style="height:inherit; margin-top:2px;"></a></li>
+			<li><a href="Joinus.html"><img src="images/Join_ico.gif" style="height:inherit; "></a></li>
+			<li><a href="team.html"><img src="images/team_ico.gif" style="height:inherit; "></a></li>
+			<li><a href="Contactus.html"><img src="images/contact_ico.gif" style="height:inherit; "></a></li>
+			<li><a href="aboutus.html"><img src="images/about_ico.gif" style="height:inherit; "></a></li>
+		</ul>
+        
+        
+        
+        
+        <ul class="cb-slideshow">
+          <li><span></span><div><h3 style="margin-left:10%;"><b>While You hate to go to School..</b></h3><h3 style="margin-left:15%;"><b>There are millions who still dream for a Class room...</b></h3></div></li>
+            <li><span></span><div><h3 style="margin-left:10%;"><b>While you get a laptop to study..</b></h3><h3 style="margin-left:15%;"><b>There are kids who can't even affoard books...</b></h3></div></li>
+            <li><span></span><div><h3 style="margin-left:10%;"><b>While you go for outings with your friends..</b></h3><h3 style="margin-left:15%;"><b>They serve tea and snacks on stalls...</b></h3></div></li>
+            <li><span></span><div><h3 style="margin-left:10%;"><b>They need a ray of hope..</b></h3><h3 style="margin-left:15%;"><b>To fill their dark lives with colors...</b></h3></div></li>
+           <li><span></span><div><h3 style="margin-left:10%;"><b>We are trying to create a change in their life..</b></h3><h3 style="margin-left:15%;"><b>Join us ..togather, Let's gift them a better future...</b></h3></div></li>
+            
+    </ul>
+   
+       
+       
+          
+            
+            
+            
+      
+    </body>
+</html>
